@@ -1,6 +1,6 @@
-# StructureMap has been [sunsetted](https://jeremydmiller.com/2018/01/29/sunsetting-structuremap/) 
+# StructureMap has been [sunset](https://jeremydmiller.com/2018/01/29/sunsetting-structuremap/) 
 
-See instead the newer [Lamar](https://github.com/jasperfx/lamar) library as a replacement for StructureMap in new applications. I will continue to accept pull requests and try to answer questions, but there will be no new development on StructureMap unless someone else takes over project ownership.
+See instead the newer [Lamar](https://github.com/jasperfx/lamar) library as a replacement for StructureMap in new applications. There will be no new development on StructureMap unless someone else takes over project ownership.
 
 -- [Jeremy](http://twitter.com/jeremydmiller)
 
@@ -24,15 +24,10 @@ Or alternatively via the .NET Core CLI:
 dotnet add package structuremap
 ```
 
-
-If you want to fix a bug or just want to tinker with an idea,
-we love receiving pull requests!
-
 Building the Source
 -------------------
 
-As of StructureMap 4.3, the codebase uses the new Dotnet CLI to build and run tests. Paket is no longer used
-to resolve nuget dependencies.
+As of StructureMap 4.3, the codebase uses the new Dotnet CLI to build and run tests.
 
 1. Clone the repository: `git clone git://github.com/structuremap/structuremap.git`
 1. (Optional) From the command line, `dotnet test src/StructureMap.Testing`
@@ -40,7 +35,7 @@ to resolve nuget dependencies.
 
 Note:
 
-The StructureMap team uses Rake internally and on the [CI server](http://build.fubu-project.org/project.html?projectId=StructureMap3), but **Rake is no longer necessary in any way for developing with the StructureMap codebase**. 
+The StructureMap team uses Rake internally and on the (now defunct) [CI server](http://build.fubu-project.org/project.html?projectId=StructureMap3), but **Rake is no longer necessary in any way for developing with the StructureMap codebase**. 
 
 Please post any questions or bugs to the
 [StructureMap Users mailing list](https://groups.google.com/forum/#!forum/structuremap-users).
