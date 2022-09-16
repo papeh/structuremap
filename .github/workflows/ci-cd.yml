@@ -1,0 +1,55 @@
+
+name: StructureMap CI and CD
+
+on:
+  pull_request:
+    branches: [ master ]
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      DOTNET_NOLOGO: true
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2.3.4
+      with:
+        fetch-depth: 0
+
+    # Install the .NET Core workload
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.0.x
+
+    - name: Install mono-devel package
+      run: sudo apt-get install mono-devel
+      if: matrix.os == 'ubuntu-latest'
+
+    - name: Build
+      run: dotnet build src/StructureMap.sln
+
+    - name: Test
+      run: dotnet test --no-restore --no-build -p:ParallelizeAssembly=false src/StructureMap.Testing
+
+    - name: Package
+      run: dotnet pack --include-symbols --no-restore --no-build -p:SymbolPackageFormat=snupkg
+
+    - name: Publish to Nuget
+      run: dotnet nuget push artifacts/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{secrets.SILLSDEV_PUBLISH_NUGET_ORG}} --skip-duplicate
+      if: github.event_name == 'push' && matrix.os == 'ubuntu-latest'
+
+    - name: Publish Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: NugetPackages
+        path: artifacts/*.nupkg
+      if: github.event_name == 'pull_request'

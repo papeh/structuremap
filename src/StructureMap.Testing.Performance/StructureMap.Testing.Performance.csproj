@@ -201,18 +201,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\StructureMap.Testing.Performance.SM3Last\StructureMap.Testing.Performance.SM3Last.csproj">
-      <Project>{eb5e2607-f7b1-4d79-8f45-f959d9b354cb}</Project>
-      <Name>StructureMap.Testing.Performance.SM3Last</Name>
-      <Aliases>SM3</Aliases>
-    </ProjectReference>
-    <ProjectReference Include="..\StructureMap.Testing.Performance.SM4Last\StructureMap.Testing.Performance.SM4Last.csproj">
-      <Project>{d6e7b953-868e-459c-821b-d0e6f3f86f22}</Project>
-      <Name>StructureMap.Testing.Performance.SM4Last</Name>
-      <Aliases>SM4</Aliases>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
