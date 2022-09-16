@@ -207,11 +207,6 @@
       <Name>StructureMap.Testing.Performance.SM3Last</Name>
       <Aliases>SM3</Aliases>
     </ProjectReference>
-    <ProjectReference Include="..\StructureMap.Testing.Performance.SM4Last\StructureMap.Testing.Performance.SM4Last.csproj">
-      <Project>{d6e7b953-868e-459c-821b-d0e6f3f86f22}</Project>
-      <Name>StructureMap.Testing.Performance.SM4Last</Name>
-      <Aliases>SM4</Aliases>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
